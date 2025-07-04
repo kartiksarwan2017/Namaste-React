@@ -1,0 +1,211 @@
+Theory:
+
+Q 1 What is Emmet ? 
+Emmet is a plugin/tool for web developers that helps you write HTML and CSS code faster by using abbreviations that automatically expand
+into full code snippets. 
+
+   Why use Emmet ?
+   Saves a tons of time
+   Reduces repetitive HTML/CSS writing
+   Great for building mockups or templates quickly
+
+Q 2 Difference between a Library and Framework?
+
+    Framework and libraries are both code written by someone else that helps you perform some common tasks in a less verbose manner.
+
+    A library is like going to Ikea. You already have a home, but you need a bit of help with furniture. You don’t feel like making your own table from scratch. Ikea allows you to pick and choose different things to go in your home. You are in control.
+
+    A framework, on the other hand, is like building a model home. You have a set of blueprints and a few limited choices when it comes to architecture and design. Ultimately, the contractor and blueprint are in control. And they will let you know when and where you can provide your input.
+
+    Technical Difference:
+    The technical difference between a framework and library lies in a term called inversion of control.
+
+    When you use a library you are in charge of the flow of the application. You are choosing when and where to call the library. 
+    When you use a framework, the framework is in charge of the flow. It provides some places for you to plug in your code, 
+    but it calls the code you plugged in as needed.
+   
+
+   Ref: https://www.freecodecamp.org/news/the-difference-between-a-framework-and-a-library-bd133054023f/
+
+    Frameworks and libraries are both code written by someone else that helps you perform some common tasks in a less verbose way.
+
+    A framework inverts the control of the program. It tells the developer what they need. A library doesn’t. The programmer calls the library where and when they need it.
+
+    The degree of freedom a library or framework gives the developer will dictate how “opinionated” it is.
+
+Q 3 What is CDN? Why do we use it? 
+    
+    CDN stands for Content Delivery Network. It is a network of distributed servers that delivers web content(like images, stylesheet, js files, videos etc) to users based on their geographic location.
+
+    Why CDN ? 
+    1. Faster load times
+       A CDN caches your content across multiple servers around the world.
+       When a user visit your site, they get content from the nearest server, reducing latency.
+
+    2. Better Performance
+       Static assets like css, js, fonts, images load much faster from the CDN.
+       Offloads your main server so that it handles fewers requests.
+
+    3. Reduced Bandwidth Costs
+       CDNs use caching and compression to reduce the amount of data transferred.
+       This saves hosting cost.
+    
+    4. Improved Avaibility
+       If one server fails, CDN can serve content from another nearby server.
+       It helps in handling traffic spikes more gracefully.
+    
+    Ref: https://www.geeksforgeeks.org/what-is-a-content-distribution-network-and-how-does-it-work/
+         
+Q 4 Why is React Known as React?
+    React was designed to:
+    React to state and data changes.
+    Automatically re-render UI components when the data they depend they depend on changes.
+    Do this in an efficient and declarative way.
+
+    Instead of manually updating the DOM(like in plain Javascript or jQuery), React handles the DOM updates reactively when the 
+    state or prop changes.
+
+Q 5 What is crossorigin in script tag?
+    When you add a script from another website(like a CDN), the browser sometimes hides errors or won't verify the file properly
+    unless you tell it how to treat that file.
+
+    The crossorigin attribute tells the browser:
+    “Hey, this file is from another site. Here’s how to handle it.”
+
+    <script src="https://cdn.example.com/file.js" crossorigin="anonymous"></script>
+
+    This means:
+
+        The browser will load the script without sending cookies.
+
+        You’ll get better error messages in the console if something goes wrong.
+
+        It’s required if you’re checking if the file is safe using integrity.
+
+    🔍 In Short:
+        crossorigin helps your browser:
+
+        Handle scripts from other websites safely
+
+        Show better error messages
+
+        Work with security checks like Subresource Integrity (SRI)
+
+    🔐 What is SRI (Subresource Integrity)?
+        SRI stands for Subresource Integrity.
+        It is a security feature that makes sure a file (like a JavaScript or CSS file) you’re loading from a CDN or third-party site has not been tampered with.
+
+        ✅ Why Use SRI?
+        When you load a file from another site (e.g., Bootstrap from a CDN), SRI helps verify:
+
+        "Is this the exact file I expected — or has someone hacked or changed it?"
+
+        If the file’s contents don’t match the expected hash, the browser blocks it from running.
+
+        🔍 Example:
+        html
+        Copy
+        Edit
+        <script 
+        src="https://cdn.example.com/script.js" 
+        integrity="sha384-AbCdEf123..." 
+        crossorigin="anonymous">
+        </script>
+        integrity is a special hash (fingerprint) of the file.
+
+        If the file’s content changes even a little, the hash won’t match — and the browser won’t load it.
+
+        🧠 In Simple Terms:
+        SRI is like checking the signature of a file before using it — to make sure it hasn’t been changed or hacked.
+
+
+Q 6 What is diference between React and ReactDOM
+
+    React is the Javascript library used for building user interfaces, especially for single page applications. React DOM is a 
+    seperate package that enables React to update and render UI components on the web browser by directly interacting with
+    the browser's document object model, ensuring smooth, dynamic user experiences by not reloading the whole page.
+
+    https://www.geeksforgeeks.org/how-react-and-reactdom-works/
+
+🔍 Difference Between React and ReactDOM
+They’re part of the same React library but do different jobs:
+
+1. ✅ React
+    It's the core library.
+
+    Used to create components, manage state, and handle logic.
+
+    It doesn’t know how to render things to the screen.
+
+    📦 You import it like this:
+
+    import React from 'react';
+    🔧 Think of it as the brain that builds and updates the UI.
+
+2. ✅ ReactDOM
+    It's the renderer for web browsers.
+
+    It takes your React components and puts them into the actual DOM (i.e., the web page).
+
+    📦 You import it like this:
+
+        import ReactDOM from 'react-dom/client';
+        🔧 Think of it as the hands that place things on the screen.
+
+📦 In Short:
+Feature	                  React	                              ReactDOM
+Role	             Logic and structure	           Renders components into the page
+Where used	        Everywhere (Web, Native, etc.)	         Only in web apps
+Example	             useState(), createElement()	       createRoot(), render()
+
+
+Q 7 What is difference between react.development.js and react.production.js files via CDN?
+
+    react.development.js
+        Used during development
+        Includes extra warnings, helpful error messages, and console logs
+        Slower performance because of those checks
+        Helps you debug issues easily
+
+    react.production.js
+        Used in live/production websites
+        All warnings and debug info are removed to make it faster and smaller
+        Optimized for performance and speed
+        You should always use this in the final version of your website
+
+Q 8 What is async and defer ?
+    
+    HTML Parsing and loading of script (fetching script from network and executing the script line by line).
+
+    <script src=""></script> 
+
+    In normal scenario, HTML parsing goes on as soon as the script tag is encountered the script are fetch from network
+    and executed immediately. and After successful execution of the script tag HTML parsing continues
+
+    <script async src=""></script>
+
+    in async script tag, HTML Parsing and fetching script with async tag from network works simultaneously.
+    As soon as the script is available the script is executed and HTML parsing is then continued.
+
+
+    <script defer src=""></script>
+
+    In case of defer tag, the HTML Parsing goes on and script are fetched in from network in parallel,
+    and only executed once HMTL Parsing is completed.
+
+    async attribute does not guarantee the order of the execution of the script.
+    but defer does.
+
+    if we have scripts which has dependent on each other, then using async will not allow us to execute script in particular order.
+    In that case use defer.
+
+    loading external scripts which are not dependent on our own code, in that case we could use async.
+
+    defer attribute maintain the order of execution of the scripts and it only executes once the HTML Parsing is completed.
+
+  Note:  HTML Parsing means the browser reads the HTML file line by line once it is loaded, and then converts it into a DOM (Document Object Model) tree — a structured, tree-like representation of your page — which the browser then uses to render and display the content on the screen.
+
+  🧠 In other words:
+        HTML → parsed → becomes DOM
+
+        DOM → used to create what you see on the screen (UI)
