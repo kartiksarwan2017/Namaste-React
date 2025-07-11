@@ -1,0 +1,57 @@
+npm start is equivalent to num run start
+npm run start behind the scene execute the package parcel with index.html because we have configured the script inside package.json
+
+React Element is an Object.
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+// React.createElement => Object => HTMML ELement(render to DOM)
+
+const heading = React.createElement("h1", { id:"heading" }, "Namaste React");
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(heading);
+
+JSX 
+Javascript Syntax which is easier to create React Elements.
+JSX and React are different.
+
+JSX is Html like syntax or XML like.
+JSX (transpiled before it reaches the JS Engine)
+parcel - Babel
+
+JSX -> Babel transpiles it to React.createElement => ReactElement - JS Object => HTML Element(render)
+camel case is used to give the attributes to JSX
+Explore various attributes in JSX
+
+img, a , href
+
+Babel Transpiles the JSX code into React.createElement
+
+
+Components in React:
+
+There are two types of component in react: 
+1. Class Based Components => OLD WAY
+2. Functional Components => NEW WAY
+
+React Functional Component is a JS function which returns JSX Code.
+Functional Component is the function which returns the React Element / JSX Code.
+
+Component Composition
+
+You can inject any JS code inside JSX.
+
+You can use React Element inside React Element
+You can use React Element inside functional Component
+You can use component inside component
+you can use component inside React Element
+
+
+JSX takes care of the injection attacks. Its prevents cross site scripting.
+We can call JS functional component inside the JSX.
+
+
+
+
+
