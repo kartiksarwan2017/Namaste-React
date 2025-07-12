@@ -1,0 +1,24 @@
+Assignment:
+
+Q What is JSX?
+
+JSX is a syntax extension to Javascript. It is a HTML like syntax (but not HTML) in javascript.
+Facebook developers build JSX.
+JSX sanitizes your code.
+JSX converts HTML tags into react elements, it easier to write and add HTML in React.
+JSX allows us to write HTML elements in Javascript and place them in the DOM without any createElement()
+and/or appendChild() methods.
+After compilation, JSX expressions become regular javascript function calls and evaluate to Javascript objects.
+
+Q Superpowers of JSX
+
+JSX allows us to write HTML like (not HTML) syntax in Javascript.
+JSX uses React.createElement behind the scenes.
+JSX => React.createElement => javascript-Object => HTML(DOM)
+Using JSX, you can write markup inside javascript, providing you with the superpower to write logic and markup 
+of a component inside a single .jsx file. JSX is easy to maintain and debug.
+JSX is very secure & makes sure that the app is safe.
+JSX prevents Injection attacks: This is safe {} => acts like a sanitizer.
+
+Example:
+const title = response.potentially Malicious Input

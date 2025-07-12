@@ -1,55 +1,164 @@
 npm start is equivalent to num run start
 npm run start behind the scene execute the package parcel with index.html because we have configured the script inside package.json
 
-React Element is an Object.
+What is a React Element? 
+Just like we have DOM elements (HTML Elements in the browser), In React We have React Elements which are a kind of equivalent to DOM Elements.
+
+Creating a Heading H1 tag in React: 
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-// React.createElement => Object => HTMML ELement(render to DOM)
 
 const heading = React.createElement("h1", { id:"heading" }, "Namaste React");
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(heading);
 
-JSX 
-Javascript Syntax which is easier to create React Elements.
+React.createElement() takes 3 arguments: 
+1. Name of the tag which we have to generate equivalent DOM element.
+Suppose we have to generate H1 in DOM we will create h1 element.
+2. Object which goes as an attributes. i.e class, id etc.
+3. what are the children of heading? -> text or another nested element.
+
+Note: React Element is not an HTML Element.
+
+When we do React.createElement() behind the scenes it creates an object.
+Therefore, React Element is an Object.
+When we render this react element to the DOM, It becomes an HTML.
+
+// React.createElement => Object => HTML ELement(render to DOM)
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+This root will become the root for our ReactApp. Whatever will happen inside react will happen inside this root. If we have to render something
+it will happen inside the root.
+
+While dealing with browsers, we have ReactDOM as a seperate package to convert React Elements to HTML Elements.
+Core React will create the element. But for displaying to the browser we will be using ReactDOM.createRoot();
+
+root.render(heading);
+
+What does root.render do ?
+When we do React.createElement() It creates the React Element. React Element is an Object.
+When we do root.render() ReactDOM takes this React Element(Object) and converts into HTML and push it into browser.
+Push it means it will replace everything inside div with id root with the whatever we render(heading).
+
+
+React.createElement() is clumsy. 
+creating an h1 tag in Html is easire than creating the element using React.createElement().
+Its not developer friendly.
+Its hard to read.
+Its clumsy for nested elements.
+
+
+To help the developer community, React developers created JSX.
+
+Q What is JSX ?
+JSX is the Javascript Syntax which is easier to create React Elements.
+Note: JSX is not a part of React.
 JSX and React are different.
 
-JSX is Html like syntax or XML like.
-JSX (transpiled before it reaches the JS Engine)
-parcel - Babel
+JSX makes our developers lives easy. That's why we use JSX.
 
-JSX -> Babel transpiles it to React.createElement => ReactElement - JS Object => HTML Element(render)
+Before Any libraries or framework,
+We use to write markup in HTML and Logics in JS.
+libraries or framework tries to merges this up. so that we could do same thing in one file. 
+
+JSX is a convention where we merge this HTML and JS together.
+
+Creating h1 using JSX:
+const jsxHeading = <h1>Namaste React using JSX</h1>;
+
+Note: JSX is not HTML inside Javascript. JSX is different than HTML.
+      JSX is Html like syntax or XML like.
+      When JSX code is executed its becomes React Element.
+
+Creating heading using React:
+React.createElement("h1", {id:"heading"}, "Namaste React");
+
+Creating Heading using JSX:
+<h1 id="heading">Namaste React</h1>
+
+Javascript is the code that JS engine can understand. JS Engine understands ECMAScript.
+
+JSX (transpiled before it reaches the JS Engine)
+JS Engine recieves the code that browsers can understand.
+
+transpiled means the JSX code is converted to the code that browsers can understand.
+tranpilation is done using Parcel (Manager) => gives responsibility of transpilation to => Babel (JS package) 
+Parcel installs Babel.
+
+Note: React.createElement() => React Element - JS Object => HTMLElement (render)
+      JSX => Babel transpiles => React.createElement() => React Element (JS Object) => HTML Element (render).
+
+Babel is converting your JSX to React.createElement()
+Older broswers does not understand ES6 code. Babel transpiles it ES6 code to a code older browsers can understand.
+Babel Transpiles the JSX code into React.createElement
+
+If you have to give attributes to JSX you have to use camelcase convention.
+
 camel case is used to give the attributes to JSX
 Explore various attributes in JSX
 
-img, a , href
+img, a 
+<img src="" alt="" />
+<a href=""></a>
 
-Babel Transpiles the JSX code into React.createElement
-
+/******************** React Components ***********************/ 
 
 Components in React:
-
 There are two types of component in react: 
-1. Class Based Components => OLD WAY
-2. Functional Components => NEW WAY
+1. Class Based Components => OLD WAY of Writing Code
+2. Functional Components => NEW WAY of Writing Code
 
 React Functional Component is a JS function which returns JSX Code.
 Functional Component is the function which returns the React Element / JSX Code.
 
 Component Composition
+Composing two components into one another.
 
-You can inject any JS code inside JSX.
+const Title = () => (
+    <h1 className="head" tabIndex="5">
+       Namaste React using JSX
+    </h1>
+)
+
+const HeadingComponent = () => (
+    <div id="container">
+       <Title />
+       <h1 className="heading">Namaste React Functional Component</h1>
+    </div>
+)
+
+
+Note: If you write {} curly braces inside JSX, inside this curcly braces you can run any JS code.
 
 You can use React Element inside React Element
 You can use React Element inside functional Component
+You can use functional Component inside React Element
 You can use component inside component
 you can use component inside React Element
 
+const data = api.getData();
 
-JSX takes care of the injection attacks. Its prevents cross site scripting.
-We can call JS functional component inside the JSX.
+const HeadingComponent = () => {  
+  return (
+    <div className="container">
+      {data}
+      <h1 className="heading">Namaste React Functional Component</h1>
+    </div>
+  );
+}
+
+What if the API sends some malicious data?
+Cross Site Scripting attacker can send some data by running JS Code, steal cookies, local storage, session storage.
+
+You can inject any JS code inside JSX.
+JSX takes care of the injection attacks. It will sanitize your data. 
+Its prevents cross site scripting.
+We can call JS functional component inside the JSX. 
+
+
+
+
 
 
 
