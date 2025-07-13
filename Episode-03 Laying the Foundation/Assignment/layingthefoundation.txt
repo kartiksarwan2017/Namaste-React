@@ -2,13 +2,32 @@ Assignment:
 
 Q What is JSX?
 
-JSX is a syntax extension to Javascript. It is a HTML like syntax (but not HTML) in javascript.
-Facebook developers build JSX.
-JSX sanitizes your code.
-JSX converts HTML tags into react elements, it easier to write and add HTML in React.
-JSX allows us to write HTML elements in Javascript and place them in the DOM without any createElement()
-and/or appendChild() methods.
-After compilation, JSX expressions become regular javascript function calls and evaluate to Javascript objects.
+JSX stands for Javascript XML.
+It allows developers to write HTML like code in Javscript without writing createElement in React which makes React code more confusing and inefficient. JSX is not part of react. JSX makes it easier to add HTML to React. JSX converts HTML code into Javascript code that 
+React can understand and renders in the DOM. 
+
+Here is a simple example of JSX:
+const element = <h1>Hello JSX!</h1>
+
+In the above code, looks like HTML, but its JSX. When this code is transpiled, it turns into javascript code that creates a React Element,
+which can be rendered in a React Application.
+
+With JSX: 
+const heading = (
+   <h1 className="heading" tabIndex="1">
+    Namaste React using JSX
+   </h1>
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(heading);
+
+Without JSX:
+React.createElement => Object => HTMML ELement(render to DOM)
+const heading = React.createElement("h1", { id:"heading" }, "Namaste React");       
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(heading);
 
 Q Superpowers of JSX
 
@@ -21,4 +40,54 @@ JSX is very secure & makes sure that the app is safe.
 JSX prevents Injection attacks: This is safe {} => acts like a sanitizer.
 
 Example:
-const title = response.potentially Malicious Input
+const title = response.potentiallyMaliciousInput
+
+// JSX prevents injection attacks
+const element = <h1>{title}</h1>
+
+Note: In this example, by default, React DOM escapes any values embedded in JSX
+before rendering them. Thus it ensures that you can never inject anything that’s not
+explicitly written in your application. Everything is converted to a string before being
+rendered. This helps prevent XSS (cross-site-scripting) attacks
+
+Q Role of type attribute in script tag? What options can I use there?
+
+The type attribute in a script tag tells the browser what kind of code is inside the script tag - 
+basically MIME type (like text/javscript, module etc).
+
+Commonly use type values:
+1. text/javascript (default) 
+   The script is Javascript.
+
+2. module 
+   Javascript Module(ES6+)
+
+3. text/Babel
+   JSX/Babel code
+
+4. application/json
+   	JSON data embedded in HTML
+
+5. importmap
+    Declares module import maps
+
+6. text/typescript
+   TypeScript
+
+Q  {TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>} in JSX
+
+    A: The Difference is stated below:
+
+    {TitleComponent} : This value describes the TitleComponent as a javascript expression
+    or a variable.
+    The {} can embed a javascript expression or a variable inside it.
+    <TitleComponent/> : This value represents a Component that is basically returning
+    Some JSX value. In simple terms TitleComponent a function that is returning a JSX
+    value.
+
+    A component is written inside the {< />} expression.
+    <TitleComponent></TitleComponent> : <TitleComponent /> and <TitleComponent>
+    </TitleComponent> are equivalent only when < TitleComponent /> has no child
+    components. The opening and closing tags are created to include the child
+    components.
+

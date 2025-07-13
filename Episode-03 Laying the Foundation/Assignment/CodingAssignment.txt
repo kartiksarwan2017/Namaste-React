@@ -1,0 +1,57 @@
+# Coding Assignment
+
+Create a Nested header Element using React.createElement(h1,h2,h3 inside a
+div with class “title”)
+○ Create the same element using JSX
+○ Create a functional component of the same with JSX
+○ Pass attributes into the tag in JSX
+○ Composition of Component(Add a component inside another)
+
+HTML: 
+<div class="title">
+  <h1>Hare Krishna!</h1>
+  <h2>Hare Krishna!</h2>
+  <h3>Hare Krishna!</h3>
+</div>
+
+const container = React.createElement("div", 
+                                      { class="title" }, 
+                                      [React.createElement("h1", {}, "Hare Krishna!"), 
+                                       React.createElement("h2", {}, "Hare Krishna!"),
+                                       React.createElement("h3", {}, "Hare Krishna!")
+                                      ]);
+
+with JSX:
+
+const container = (<div className="title">
+                       <h1>Hare Krishna!</h1>
+                       <h2>Hare Krishna!</h2>
+                       <h3>Hare Krishna!</h3>
+                  </div>);
+
+const Title = () => {
+  return (
+    <h1>Namaste React Course!</h1>
+  )
+}
+
+const HeadingComponent = () => {
+  return (
+    <div className="title">
+       <Title />
+       <h1>Hare Krishna!</h1>
+       <h2>Hare Krishna!</h2>
+       <h3>Hare Krishna!</h3>
+    </div>
+  );
+}
+
+
+● Create a Header Component from scratch using Functional Components with
+JSX
+○ Add a Logo on left
+○ Add a search bar in middle
+○ Add User icon on right
+○ Add CSS to make it look nice
+
+
