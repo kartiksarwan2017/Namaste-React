@@ -1,0 +1,39 @@
+React Functional Component is the Javascript function which returns JSX Code.
+Component Composition is the way to render one component inside another component.
+
+Why do we create functions in JS ?
+So that we could reuse it.
+Always create a seperate component if it has to be reused.
+
+Props in React:
+Dynamically pass some data to the component. We can pass it as props.
+Props are just arguments to the function.
+
+Passing a prop to a component is similar to that of Passing arguments to functions.
+
+What React does is: React will take all these properties / Props and wrap inside object and pass over function as props.
+When you have to Dynamically pass in some data to a component you pass it as a props.
+
+Config Driven UI:
+UI is basically driven by config driven.
+All is UI is driven by config (API data).
+
+Reusable Components
+Dynamic Props can be used.
+
+why we use the key attribute when we loop over in react?
+When there are components at the same level, these components need to have unique id.
+
+why ?
+because if there is a new restaurant that came in, and it came in first place. If we dont mention the key attribute or unique id react will re render all the card components on the same level.
+
+If there is one more restaurant card, added to the res-container, react does not know at which place we ned to put the
+restuarant card. It will treat all the restuarant card same and re render all the cards.
+
+If we give them unique id, and a new restaurant came with id xyz, at first place, it will just render one of the restaurant.
+
+React optimises its render cycle 
+
+React itself says that do not use index of map function as a key.
+
+
