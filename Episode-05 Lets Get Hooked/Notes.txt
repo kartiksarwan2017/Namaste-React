@@ -1,0 +1,29 @@
+There are two types of export/import: 
+1. Named Export/Import
+2. Default Export/Import
+
+export default Component;
+import Component from "path";
+
+Named Export/Import:
+
+export const Component;
+import {Component} from "path";
+
+React Hooks
+Normal JS Utility Functions - Written by FB Developers
+
+useState()  
+  Superpowerful State Variables in React
+  local state variable scope is inside the component it resides into.
+
+useEffect() 
+  
+Whenever a state variable updates React re-renders the component.
+
+Virtual DOM, Reconciliation, React Fiber, Diff Algorithm
+
+Reconciliation Algorithm (React Fiber)
+
+Virtual DOM is the representation of the Actual DOM. 
+Virtual DOM are the React Elements.
