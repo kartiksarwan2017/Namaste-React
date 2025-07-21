@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 
@@ -8,6 +8,25 @@ const Body = () => {
   // State Variables - Super Powerful, Variable
   // Hook is Normal JS function which is utility function given to us from React
   const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [searchInput, setSearchInput] = useState("");
+
+   useEffect(() => {
+    const timer = setTimeout(() => {
+      if (searchInput.trim() === "") {
+        setListOfRestaurants(listOfRestaurants);
+        return;
+      }
+
+      const filteredList = listOfRestaurants.filter((res) => {
+        const restaurantDetails = res?.card?.card?.info;
+        return restaurantDetails?.name?.toLowerCase().includes(searchInput.toLowerCase());
+      });
+
+      setListOfRestaurants(filteredList);
+    }, 500); 
+
+    return () => clearTimeout(timer);
+  }, [searchInput, listOfRestaurants]);
 
   // Normal JS Variabes
   // let listOfRestaurantsJS = [{
@@ -76,6 +95,14 @@ const Body = () => {
 
   return (
     <div className="body">
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+        /> 
+      </div>
       <div className="filter">
         <button className="filter-btn" onClick={() => { 
           // Filter Logic Here

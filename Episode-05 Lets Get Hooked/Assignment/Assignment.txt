@@ -1,0 +1,122 @@
+Assignment:
+
+Q What is the difference between Named Export, Default export and * as export?
+ES6 provides us to import & export a module and use it in other files. ES6 provides two ways to export a module from a file:
+named export and default export.
+
+In Named Export, one can have multiple named exports per file. Then import the specific exports they want surrounded in {} braces
+. The name of imported module has to be the same as the name of the exported module. In Named Export, the component is exported from 
+MyComponent.js file like:
+ 
+export const MyComponent = () => {}
+export const MyComponent2 = () => {}
+
+and the component is imported from MyComponent.js file: here we must use {} in MyComponent.
+
+// ex. importing a single named export
+import { MyComponent } from "./MyComponent";
+
+// ex. importing multiple named exports
+import {MyComponent, MyComponent2} from "./MyComponent"
+
+// ex. giving a named import a difference name by using "as"
+import {MyComponent2 as MyNewComponent} from "./MyComponent";
+
+ In Default Export, One can have only one default export per file. The naming of import is completely independent in default export and we
+ can use any name we like. In Default export, the component is exported from MyComponent.js file like:
+
+ const MyComponent = () => {}
+ export default MyComponent;
+
+ and the component is imported from MyComponent.js file like: here we must omit {} in MyComponent
+
+import MyComponent from "./MyComponent;
+
+In * as export, It is used to import the whole module as a component and the access the components inside the module.In * as export, the component is exported from MyComponent.js file like:
+
+export const MyComponent = () => {}
+export const MyComponent2 = () => {}
+export const MyComponent3 = () => {}
+
+and the component is imported from MyComponent.js file like:
+
+import * as MainComponents from "./MyComponent";
+
+Now we can use them in JSX as:
+<MainComponents.MyComponent />
+<MainComponents.MyComponent2 />
+<MainComponents.MyComponent3 />
+
+We can use Named export and Default export together. so you should export like:
+export const MyComponent2 = () => {}
+const MyComponent = () => {}
+export default MyComponent;
+
+and import like:
+import MyComponent, { MyComponent2 } from "./MyComponent";
+
+
+
+
+Q What is the importance of config.js file?
+
+config.js files are essentially editable text files that contain information required for the successful operation of a program. The files are
+structured in a particular way, formatted to be user configurable. Most of the computer programs we use:
+whether office suites, web browsers, even video games are configured via menu interfaces.
+Configuration files are very simple in structure. For instance, if you were to write an application, and the only thing it
+ever needed to know was its user's preference name, then its one and only config file could contain exactly one word:
+the name of the user. 
+
+For Example:
+Chetan
+
+Usually though an application needs to keep track of more than just one piece of information, so configuration often uses a key
+and a value:
+
+NAME="Chetan"
+SURNAME="Nada"
+
+Q What are React Hooks?
+
+https://www.freecodecamp.org/news/introduction-to-react-hooks/
+https://www.freecodecamp.org/news/react-hooks-cheatsheet/
+
+
+In React version 16.8, React introduced a new pattern called Hooks. React Hooks are simple Javascript functions that we can use to isolate
+the reusable part from a functional component. Hooks can be stateful and can manage side effects. Hooks allow you to reuse stateful logic
+without changing your component hierarchy. This makes it wasy to share Hooks amoung many components or with the community.
+
+React provides bunch of standard in-built hooks: 
+useState: To manage states. Return a stateful value and an updater function to update it.
+useEffect: To manage side-effects like API calls, subscription, timers, mutations and more
+useContext: To return the current value for a context.
+useReducer: A useState alternative to help with the complex state management
+useCallback: It returns a memoized version of a callback to help a child component not re render unnecessarily.
+useMemo: It returns a memoized value that helps in performance optimization.
+useRef: It returns a ref object with a current property. The ref object is mutable. It is mainly used to access a child
+        component imperatively.
+useLayoutEffect: It fires at the end of all DOM mutations. It's best to use useEffect as much as possible over this one as the 
+                useLayoutEffect fires synchronously
+useDebugValue: Helps to display a label in React Devtools for custom hooks.
+
+
+Q why do we need useState Hook?
+
+useState hook is used to maintain the state in our React Application. It keeps track of the state changes so basically useState
+has the ability to encapsulate local state in a  functional component. The useState hook is a special function that takes
+the initial state as an argument and returns an array of two entries.
+UseState encapsulate only singular value from the state, from multiple state need to have useState calls.
+
+Syntax for useState Hook:
+
+const [state, setState] = useState(initialState);
+
+Importing: To use useState you need to import useState from react as shown below:
+import React, { useState } from "react";
+
+we can use Hooks in Functional components:
+
+const Example = (props) => {
+    // You can use Hooks here!
+    return <div />
+}
