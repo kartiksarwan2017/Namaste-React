@@ -1,0 +1,20 @@
+Monolith Architecture: 
+
+Microservices: 
+  - Seperation of concerns
+  - Single responsiblity principle
+  - Seperation of concerns / single responsiblity principle
+
+Q Why do we need state variables? 
+Whenever state variable will be changed react will re render the component and all the updated values will be there.
+Whenever state variables update, React triggers a reconciliation cycle (re-renders the component).
+
+Virtual DOM is the object representation of the JSX.
+
+Whenever the state variable changes, react find the difference between the Newer Virtual DOM and Older Virtual DOM. 
+and sees input is getting changed so its re renders the component but updates the value in the DOM.
+
+React Fiber => optimizing the DOM.
+
+
+
