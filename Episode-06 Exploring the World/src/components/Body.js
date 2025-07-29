@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import InfiniteScrollComponent from "./InfiniteScrollComponent";
 
 // CONFIG DRIVEN UI
 const Body = () => {
@@ -85,6 +86,7 @@ const Body = () => {
           );
         })}
       </div>
+      <InfiniteScrollComponent />
     </div>
   );
 }

@@ -16,5 +16,11 @@ and sees input is getting changed so its re renders the component but updates th
 
 React Fiber => optimizing the DOM.
 
+Swiggy Website => 
+Inspect Tools - check the Response of the API => 
+                open it in JSON
+
+Optional Chaining
+
 
 
